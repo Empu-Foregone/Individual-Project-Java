@@ -1,0 +1,13 @@
+com\example\socialnetwork\model\Group.class
+com\example\socialnetwork\model\Student.class
+com\example\socialnetwork\dao\StudentGroupDAO.class
+com\example\socialnetwork\controller\MainController.class
+com\example\socialnetwork\model\Friendship.class
+com\example\socialnetwork\dao\StudentDAO.class
+com\example\socialnetwork\TestDB.class
+com\example\socialnetwork\dao\FriendshipDAO.class
+com\example\socialnetwork\dao\GroupDAO.class
+com\example\socialnetwork\db\DatabaseConnection.class
+com\example\socialnetwork\MainApp.class
+com\example\socialnetwork\service\SocialNetworkService.class
+com\example\socialnetwork\TestTables.class

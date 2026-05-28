@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="com.example.socialnetwork.controller.MainController"
+         tabClosingPolicy="UNAVAILABLE">
+
+    <Tab text="Студенти">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Пошук за прізвищем:"/>
+                <TextField fx:id="searchLastNameField" promptText="Прізвище"/>
+                <Button text="Знайти" onAction="#searchStudentsByLastName"/>
+                <Button text="Скинути" onAction="#clearStudentSearch"/>
+            </HBox>
+            <TableView fx:id="studentsTable" prefHeight="300">
+                <columns>
+                    <TableColumn text="ID" fx:id="colId"/>
+                    <TableColumn text="Ім'я" fx:id="colFirstName"/>
+                    <TableColumn text="Прізвище" fx:id="colLastName"/>
+                    <TableColumn text="Email" fx:id="colEmail"/>
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <TextField fx:id="firstNameField" promptText="Ім'я"/>
+                <TextField fx:id="lastNameField" promptText="Прізвище"/>
+                <TextField fx:id="emailField" promptText="Email"/>
+                <Button text="Додати" onAction="#addStudent"/>
+                <Button text="Оновити" onAction="#updateStudent"/>
+                <Button text="Видалити" onAction="#deleteStudent"/>
+            </HBox>
+        </VBox>
+    </Tab>
+
+    <Tab text="Групи">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TableView fx:id="groupsTable" prefHeight="300">
+                <columns>
+                    <TableColumn text="ID" fx:id="colGroupId"/>
+                    <TableColumn text="Назва групи" fx:id="colGroupName"/>
+                    <TableColumn text="Староста (ID)" fx:id="colHeadmanId"/>
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <TextField fx:id="groupNameField" promptText="Назва групи"/>
+                <TextField fx:id="headmanIdField" promptText="ID старости (optional)"/>
+                <Button text="Додати групу" onAction="#addGroup"/>
+                <Button text="Оновити групу" onAction="#updateGroup"/>
+                <Button text="Видалити групу" onAction="#deleteGroup"/>
+            </HBox>
+        </VBox>
+    </Tab>
+
+    <Tab text="Дружба">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="10">
+                <ComboBox fx:id="student1Combo" promptText="Студент 1"/>
+                <ComboBox fx:id="student2Combo" promptText="Студент 2"/>
+                <Button text="Додати дружбу" onAction="#addFriendship"/>
+                <Button text="Видалити дружбу" onAction="#removeFriendship"/>
+            </HBox>
+            <Label text="Друзі вибраного студента:"/>
+            <ComboBox fx:id="selectedStudentCombo" promptText="Оберіть студента" onAction="#showFriends"/>
+            <ListView fx:id="friendsListView"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="Запити">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button text="Топ-5 студентів за кількістю друзів" onAction="#showTop5Friends"/>
+            <Button text="Групи з найбільшою кількістю дружніх зв'язків" onAction="#showMostFriendlyGroups"/>
+            <Button text="Студенти, які не дружать зі старостою своєї групи" onAction="#showNotFriendsWithHeadman"/>
+            <TextArea fx:id="queryResultArea" prefHeight="300" editable="false"/>
+        </VBox>
+    </Tab>
+
+</TabPane>
